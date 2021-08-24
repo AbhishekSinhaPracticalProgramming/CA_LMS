@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rel"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/logindesign"
+    tools:context=".MainActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+
+        <EditText
+            android:id="@+id/edt_mail"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/marign_50"
+            android:layout_marginLeft="@dimen/marign_10"
+            android:layout_marginRight="@dimen/marign_10"
+            android:background="@drawable/edt_style"
+            android:drawablePadding="10dp"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:maxLength="30"
+            android:maxLines="1"
+            android:paddingLeft="@dimen/marign_10"
+            android:textSize="@dimen/font_size_15" />
+
+        <EditText
+            android:id="@+id/edt_password"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/marign_50"
+            android:layout_marginLeft="@dimen/marign_10"
+            android:layout_marginTop="@dimen/marign_10"
+            android:layout_marginRight="@dimen/marign_10"
+            android:background="@drawable/edt_style"
+            android:drawablePadding="10dp"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:maxLength="25"
+            android:maxLines="1"
+            android:paddingLeft="@dimen/marign_10"
+            android:textSize="@dimen/font_size_15" />
+
+        <TextView
+            android:id="@+id/tv_forgot_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="@dimen/marign_10"
+            android:paddingRight="@dimen/marign_10"
+            android:text="@string/forgot_password"
+            android:textSize="@dimen/font_size_15">
+
+        </TextView>
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/marign_50"
+            android:layout_marginLeft="@dimen/marign_10"
+            android:layout_marginTop="@dimen/marign_10"
+            android:layout_marginRight="@dimen/marign_10"
+            android:layout_marginBottom="@dimen/marign_10"
+            android:background="@drawable/btn_style"
+            android:text="@string/sign_in"
+            android:textAllCaps="false"
+            android:textSize="@dimen/font_size_15" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/marign_05"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_dont_have_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dont_have_account"
+            android:textSize="@dimen/font_size_15">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/tv_sing_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/marign_05"
+            android:text="@string/sign_up_here"
+            android:textColor="@color/app_color"
+            android:textSize="@dimen/font_size_15" />
+    </LinearLayout>
+</RelativeLayout>
