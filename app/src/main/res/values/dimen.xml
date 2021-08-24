@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="marign_05">05dp</dimen>
     <dimen name="marign_10">10dp</dimen>
     <dimen name="marign_20">20dp</dimen>
     <dimen name="marign_30">30dp</dimen>
     <dimen name="marign_40">40dp</dimen>
+    <dimen name="marign_45">45dp</dimen>
     <dimen name="marign_50">50dp</dimen>
     <dimen name="marign_60">60dp</dimen>
     <dimen name="marign_70">70dp</dimen>

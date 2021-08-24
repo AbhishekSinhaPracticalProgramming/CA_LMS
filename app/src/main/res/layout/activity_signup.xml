@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rel"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/logindesign"
+    tools:context=".MainActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/edt_user_name"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/marign_50"
+            android:layout_marginLeft="@dimen/marign_10"
+            android:layout_marginRight="@dimen/marign_10"
+            android:background="@drawable/edt_style"
+            android:drawablePadding="10dp"
+            android:hint="@string/user_name"
+            android:inputType="text"
+            android:maxLength="20"
+            android:maxLines="1"
+            android:paddingLeft="@dimen/marign_10"
+            android:textSize="@dimen/font_size_15" />
+
+        <EditText
+            android:id="@+id/edt_mail"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/marign_50"
+            android:layout_marginLeft="@dimen/marign_10"
+            android:layout_marginTop="@dimen/marign_10"
+
+            android:layout_marginRight="@dimen/marign_10"
+            android:background="@drawable/edt_style"
+            android:drawablePadding="10dp"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:maxLength="30"
+            android:maxLines="1"
+            android:paddingLeft="@dimen/marign_10"
+            android:textSize="@dimen/font_size_15" />
+
+        <EditText
+            android:id="@+id/edt_password"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/marign_50"
+            android:layout_marginLeft="@dimen/marign_10"
+            android:layout_marginTop="@dimen/marign_10"
+            android:layout_marginRight="@dimen/marign_10"
+            android:background="@drawable/edt_style"
+            android:drawablePadding="10dp"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:maxLength="25"
+            android:maxLines="1"
+            android:paddingLeft="@dimen/marign_10"
+            android:textSize="@dimen/font_size_15" />
+
+        <EditText
+            android:id="@+id/edt_cnf_password"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/marign_50"
+            android:layout_marginLeft="@dimen/marign_10"
+            android:layout_marginTop="@dimen/marign_10"
+            android:layout_marginRight="@dimen/marign_10"
+            android:background="@drawable/edt_style"
+            android:drawablePadding="10dp"
+            android:hint="@string/conf_password"
+            android:inputType="textPassword"
+            android:maxLength="25"
+            android:maxLines="1"
+            android:paddingLeft="@dimen/marign_10"
+            android:textSize="@dimen/font_size_15" />
+
+        <Button
+            android:id="@+id/btn_register"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/marign_50"
+            android:layout_marginLeft="@dimen/marign_10"
+            android:layout_marginTop="@dimen/marign_10"
+            android:layout_marginRight="@dimen/marign_10"
+            android:layout_marginBottom="@dimen/marign_10"
+            android:background="@drawable/btn_style"
+            android:text="@string/sign_up"
+            android:textAllCaps="false"
+            android:textSize="@dimen/font_size_15" />
+
+    </LinearLayout>
+</RelativeLayout>
