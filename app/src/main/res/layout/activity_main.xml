@@ -4,8 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/app_color"
     tools:context=".MainActivity">
 
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="@dimen/marign_70"
+        android:layout_height="@dimen/marign_70"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/marign_100"
+        android:src="@mipmap/ic_launcher">
+
+    </ImageView>
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animationView"
@@ -15,4 +26,16 @@
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/online" />
+
+    <TextView
+        android:id="@+id/typeWriterView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/marign_05"
+        android:text="@string/wwelcome"
+        android:textSize="@dimen/font_size_15"
+        android:textStyle="bold" />
+
 </RelativeLayout>
