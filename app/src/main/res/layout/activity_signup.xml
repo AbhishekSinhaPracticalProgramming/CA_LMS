@@ -91,5 +91,15 @@
             android:textAllCaps="false"
             android:textSize="@dimen/font_size_15" />
 
+        <TextView
+            android:id="@+id/tv_forgot_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="@dimen/marign_10"
+            android:paddingRight="@dimen/marign_10"
+            android:text="@string/forgot_password"
+            android:textSize="@dimen/font_size_15"/>
+
     </LinearLayout>
 </RelativeLayout>

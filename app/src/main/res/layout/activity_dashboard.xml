@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/app_color"
     android:paddingLeft="@dimen/marign_10"
     android:paddingTop="@dimen/marign_10"
     android:paddingRight="@dimen/marign_10"
+    android:background="@color/app_color"
     android:paddingBottom="@dimen/marign_10">
+
 
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="190dp"
-        android:layout_marginBottom="8dp"
-       />
+        android:layout_marginBottom="8dp" />
 
     <LinearLayout
         android:id="@+id/SliderDots"
@@ -27,9 +29,9 @@
 
     <GridView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/gridview"
-        android:layout_below="@+id/SliderDots"
         android:layout_width="fill_parent"
         android:layout_height="@dimen/marign_280"
+        android:layout_below="@+id/SliderDots"
         android:layout_marginTop="@dimen/marign_05"
         android:columnWidth="@dimen/marign_100"
         android:gravity="center"
@@ -37,6 +39,25 @@
         android:numColumns="2"
         android:verticalSpacing="10dp" />
 
+    <FrameLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="65dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        tools:context=".activity.DashBoardActivity">
 
 
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigationView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/marign_60"
+            android:background="@drawable/edt_style"
+            app:menu="@menu/bottom_menu" />
+
+    </RelativeLayout>
 </RelativeLayout>

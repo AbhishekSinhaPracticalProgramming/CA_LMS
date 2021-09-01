@@ -1,5 +1,6 @@
 package com.ravi.commerce.activity;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -26,6 +27,10 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.ravi.commerce.R;
+import com.ravi.commerce.common.CommonUtil;
+import com.ravi.commerce.pref.SharedpreferenceUtility;
+
+import dmax.dialog.SpotsDialog;
 
 public class SignInActivity extends AppCompatActivity implements View.OnClickListener, GoogleApiClient.OnConnectionFailedListener {
     public static final String TAG = "SignInActivity";
@@ -33,7 +38,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     private TextView tv_forgot_pass, tv_sing_up, tv_dont_have_account;
     private EditText edt_mail, edt_password;
     private String strMail, strPaassword;
-
+    private AlertDialog dialog;
     private static final int RC_SIGN_IN = 9001;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -67,6 +72,11 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         edt_password = findViewById(R.id.edt_password);
         tv_dont_have_account = findViewById(R.id.tv_dont_have_account);
         tv_sing_up = findViewById(R.id.tv_sing_up);
+
+        dialog = new SpotsDialog.Builder().setContext(SignInActivity.this).build();
+        dialog.setMessage("Please wait...");
+        dialog.setCancelable(false);
+
 
 //        // Configure Google Sign In
 //        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -114,15 +124,25 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     private void isLoginFunc() {
         strMail = edt_mail.getText().toString().trim();
         strPaassword = edt_password.getText().toString().trim();
-        if (strMail.equals("")) {
-            Toast.makeText(SignInActivity.this, "Email must be fill", Toast.LENGTH_SHORT).show();
-        } else if (strPaassword.equals("")) {
-            Toast.makeText(SignInActivity.this, "Password must be fill", Toast.LENGTH_SHORT).show();
+
+
+        if (!CommonUtil.emailValidate(strMail)) {
+            Toast.makeText(SignInActivity.this, "Please Enter Valid Email", Toast.LENGTH_SHORT).show();
+            edt_mail.setError("Please Enter Valid Email");
+
+        } else if (!CommonUtil.isPasswordValid(strPaassword)) {
+            Toast.makeText(SignInActivity.this, "Please Enter Valid Password", Toast.LENGTH_SHORT).show();
+            edt_password.setError("Please Enter Valid Password");
 
         } else {
+//            dialog.show();
+//
+//            dialog.dismiss();
+//
+            SharedpreferenceUtility.getInstance(SignInActivity.this).putString(CommonUtil.LOGIN, strMail);
+            SharedpreferenceUtility.getInstance(SignInActivity.this).putString(CommonUtil.PASS, strPaassword);
 
 
-            //                                 SharedpreferenceUtility.getInstance(MainActivity.this).putString(Constants.KEY_LUSERNAME, username);
             Intent intent = new Intent(SignInActivity.this, DashBoardActivity.class);
             startActivity(intent);
             finish();

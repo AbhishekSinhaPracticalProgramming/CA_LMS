@@ -14,7 +14,32 @@ public class CommonUtil {
     public static List<Integer> imgList = new ArrayList<Integer>();
     public static List<String> nameList = new ArrayList<String>();
     public static String BASE_URL = "https://simplifiedcoding.net/demos/";
-    public static final int SPLASH_TIME = 5000;
+    public static int SPLASH_TIME = 5000;
+    public static String LOGIN;
+    public static String PASS;
+
+    public static boolean isValidUsername(String name) {
+        String regex = "^[A-Za-z]\\w{5,29}$";
+        Pattern p = Pattern.compile(regex);
+        if (name == null) {
+            return false;
+        }
+        Matcher m = p.matcher(name);
+        return m.matches();
+    }
+
+
+    public static boolean isPasswordValid(String password) {
+        String regExpn = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$";
+        CharSequence inputStr = password;
+        Pattern pattern = Pattern.compile(regExpn, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(inputStr);
+        if (matcher.matches())
+            return true;
+        else
+            return false;
+    }
+
 
     public static final Pattern VALID_EMAIL_ADDRESS_REGEX =
             Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);

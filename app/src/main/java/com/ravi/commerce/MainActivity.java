@@ -6,16 +6,21 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.ravi.commerce.activity.DashBoardActivity;
 import com.ravi.commerce.activity.SignInActivity;
+import com.ravi.commerce.common.CommonUtil;
+import com.ravi.commerce.pref.SharedpreferenceUtility;
 
 
 public class MainActivity extends AppCompatActivity {
     public static final String TAG = "MainActivity";
     private TextView typeWriterView;
+    private String strUserName, strPass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,17 +33,29 @@ public class MainActivity extends AppCompatActivity {
 
     private void setValues() {
         typeWriterView.setTypeface(Typeface.createFromAsset(getAssets(), "font/trebuc.ttf"));
+        strUserName = SharedpreferenceUtility.getInstance(MainActivity.this).getString(CommonUtil.LOGIN);
+        strPass = SharedpreferenceUtility.getInstance(MainActivity.this).getString(CommonUtil.PASS);
+        Log.e(TAG, "run:    " + strUserName );
     }
 
     private void moveToNextPage() {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(MainActivity.this, SignInActivity.class);
-                startActivity(intent);
-                finish();
-                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
 
+                if (!(strUserName.equals("") && strPass.equals(""))){
+                    Intent intent = new Intent(MainActivity.this, DashBoardActivity.class);
+                    startActivity(intent);
+                    finish();
+                    overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+
+                } else {
+
+                    Intent intent = new Intent(MainActivity.this, SignInActivity.class);
+                    startActivity(intent);
+                    finish();
+                    overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                }
             }
         }, SPLASH_TIME);
     }
