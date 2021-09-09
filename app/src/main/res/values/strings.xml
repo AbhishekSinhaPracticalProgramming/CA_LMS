@@ -11,6 +11,7 @@
     <string name="sign_up">Sign Up</string>
     <string name="sign_up_here">SignUp</string>
     <string name="dont_have_account">Don\'t have account signup?</string>
-
-
+    <string name="parches">Purchase</string>
+    <string name="demo">Demo</string>
+    <string name="pay_now">Pay Now</string>
 </resources>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dashboard_card_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="@dimen/marign_10"
+    tools:ignore="MissingClass">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="@dimen/marign_160"
+            android:layout_height="@dimen/marign_160"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textSize="@dimen/font_size_15" />
+
+            <com.dinuscxj.progressbar.CircleProgressBar
+                android:id="@+id/solid_progress"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:progress_background_color="@color/app_color"
+                app:progress_end_color="@android:color/holo_green_light"
+                app:progress_start_color="@android:color/holo_green_light"
+                app:progress_start_degree="0"
+                app:progress_style="solid"
+                app:progress_text_color="@color/white" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

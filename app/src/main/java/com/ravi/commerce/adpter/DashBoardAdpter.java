@@ -1,6 +1,8 @@
 package com.ravi.commerce.adpter;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ravi.commerce.R;
+import com.ravi.commerce.activity.OneSubjectClassActivity;
 
 import java.util.List;
 
@@ -57,16 +60,15 @@ public class DashBoardAdpter extends BaseAdapter {
         holder.image = rowView.findViewById(R.id.image);
         holder.image.setImageResource(imagesLIST.get(position));
 
-//        rowView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (names.get(position).contains("Doctor")) {
-//                    Activity activity = (Activity) context;
-//                    Intent intent = new Intent(context, DoctorActivity.class);
-//                    activity.startActivity(intent);
-//                    activity.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-//
-//                }
+        rowView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (names.get(position).contains("Maths")) {
+                    Activity activity = (Activity) context;
+                    Intent intent = new Intent(context, OneSubjectClassActivity.class);
+                    activity.startActivity(intent);
+                    activity.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                }
 //                if (names.get(position).contains("Lab")) {
 //                    Activity activity = (Activity) context;
 //                    Intent intent = new Intent(context, LabActivity.class);
@@ -86,8 +88,8 @@ public class DashBoardAdpter extends BaseAdapter {
 //                    activity.startActivity(intent);
 //                    activity.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 //                }
-//            }
-//        });
+            }
+        });
         return rowView;
     }
 }

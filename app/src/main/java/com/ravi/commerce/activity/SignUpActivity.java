@@ -48,12 +48,12 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         tv_forgot_pass = findViewById(R.id.tv_forgot_pass);
     }
 
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    }
 
-//    @Override
-//    public void finish() {
-//        super.finish();
-//        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-//    }
 
     @Override
     public void onClick(View v) {
@@ -67,7 +67,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
                 startActivity(intent);
                 finish();
-                //overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 break;
         }
     }
@@ -119,7 +119,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
             startActivity(intent);
             finish();
-          //  overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         }
     }
 }

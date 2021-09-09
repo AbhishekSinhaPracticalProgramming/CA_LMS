@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ravi.commerce">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -25,6 +27,11 @@
         <activity android:name=".activity.SignInActivity"></activity>
         <activity android:name=".activity.DashBoardActivity"></activity>
         <activity android:name=".activity.SignUpActivity"></activity>
+        <activity android:name=".activity.OneSubjectClassActivity"></activity>
+        <activity android:name=".activity.ParchesSubjectClassActivity"></activity>
+        <activity android:name=".activity.ListOfDemoActivity"></activity>
+        <activity android:name=".activity.PaymentScreenActivity"></activity>
+        <activity android:name=".activity.YourSubjectActivity"></activity>
     </application>
 
 </manifest>

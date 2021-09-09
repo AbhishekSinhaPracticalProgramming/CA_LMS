@@ -47,14 +47,14 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(MainActivity.this, DashBoardActivity.class);
                     startActivity(intent);
                     finish();
-                    overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
                 } else {
 
                     Intent intent = new Intent(MainActivity.this, SignInActivity.class);
                     startActivity(intent);
                     finish();
-                    overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 }
             }
         }, SPLASH_TIME);

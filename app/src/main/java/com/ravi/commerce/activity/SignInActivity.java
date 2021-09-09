@@ -112,7 +112,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                 Intent intent = new Intent(SignInActivity.this, SignUpActivity.class);
                 startActivity(intent);
                 finish();
-                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 break;
         }
     }
@@ -146,7 +146,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
             Intent intent = new Intent(SignInActivity.this, DashBoardActivity.class);
             startActivity(intent);
             finish();
-            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         }
     }
 

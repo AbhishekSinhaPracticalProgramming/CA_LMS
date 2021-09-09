@@ -6,6 +6,7 @@ import static com.ravi.commerce.common.CommonUtil.getName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.WindowManager;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -55,6 +56,7 @@ public class DashBoardActivity extends AppCompatActivity implements BottomNaviga
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
         setContentView(R.layout.activity_dashboard);
         init();
         setValues();
@@ -131,6 +133,7 @@ public class DashBoardActivity extends AppCompatActivity implements BottomNaviga
                 Intent intent = new Intent(this, DashBoardActivity.class);
                 startActivity(intent);
                 finish();
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 return true;
         }
         return false;
@@ -187,5 +190,6 @@ public class DashBoardActivity extends AppCompatActivity implements BottomNaviga
         fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content, fragment).addToBackStack("fragment");
         fragmentTransaction.commit();
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 }
