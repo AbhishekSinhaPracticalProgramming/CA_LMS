@@ -29,8 +29,14 @@ import com.google.firebase.auth.GoogleAuthProvider;
 import com.ravi.commerce.R;
 import com.ravi.commerce.common.CommonUtil;
 import com.ravi.commerce.pref.SharedpreferenceUtility;
+import com.ravi.commerce.resp.login.LoginResponse;
+import com.ravi.commerce.rest.Rest;
+import com.ravi.commerce.rest.RetrofitClient;
 
 import dmax.dialog.SpotsDialog;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class SignInActivity extends AppCompatActivity implements View.OnClickListener, GoogleApiClient.OnConnectionFailedListener {
     public static final String TAG = "SignInActivity";
@@ -125,28 +131,59 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         strMail = edt_mail.getText().toString().trim();
         strPaassword = edt_password.getText().toString().trim();
 
-
         if (!CommonUtil.emailValidate(strMail)) {
             Toast.makeText(SignInActivity.this, "Please Enter Valid Email", Toast.LENGTH_SHORT).show();
-            edt_mail.setError("Please Enter Valid Email");
 
-        } else if (!CommonUtil.isPasswordValid(strPaassword)) {
+        } else if (strPaassword.equals("")) {
             Toast.makeText(SignInActivity.this, "Please Enter Valid Password", Toast.LENGTH_SHORT).show();
-            edt_password.setError("Please Enter Valid Password");
+        } else {
+            loginApiCalling();
+        }
+    }
+
+
+    private void loginApiCalling() {
+        if (CommonUtil.isNetworkConnected(this)) {
+            dialog.show();
+            Rest apiInterface = RetrofitClient.getClient().create(Rest.class);
+            Call<LoginResponse> call = apiInterface.getUserLogin( strMail, strPaassword);
+            call.enqueue(new Callback<LoginResponse>() {
+                @Override
+                public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                    Log.d("TAG", response.code() + "");
+                    dialog.dismiss();
+                    LoginResponse model = response.body();
+
+                    Log.e(TAG, "onResponse: "+model.isStatus());
+                    Log.e(TAG, "onResponse: "+model.getMessage());
+
+                    if (model.isStatus()==true  && response.isSuccessful()) {
+
+                        Toast.makeText(SignInActivity.this, model.getMessage(), Toast.LENGTH_SHORT).show();
+
+                        SharedpreferenceUtility.getInstance(SignInActivity.this).putString(CommonUtil.LOGIN, strMail);
+                        SharedpreferenceUtility.getInstance(SignInActivity.this).putString(CommonUtil.PASS, strPaassword);
+
+                        Intent intent = new Intent(SignInActivity.this, DashBoardActivity.class);
+                        startActivity(intent);
+                        finish();
+                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    }else {
+                        Toast.makeText(SignInActivity.this, model.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<LoginResponse> call, Throwable t) {
+                    dialog.dismiss();
+                    Log.e(TAG, "onFailure: Message  " + t.getMessage());
+                    Toast.makeText(SignInActivity.this, "Please check your internet connection .", Toast.LENGTH_SHORT).show();
+                }
+            });
 
         } else {
-//            dialog.show();
-//
-//            dialog.dismiss();
-//
-            SharedpreferenceUtility.getInstance(SignInActivity.this).putString(CommonUtil.LOGIN, strMail);
-            SharedpreferenceUtility.getInstance(SignInActivity.this).putString(CommonUtil.PASS, strPaassword);
-
-
-            Intent intent = new Intent(SignInActivity.this, DashBoardActivity.class);
-            startActivity(intent);
-            finish();
-            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            dialog.dismiss();
+            Toast.makeText(this, "Please check your internet connection .", Toast.LENGTH_SHORT).show();
         }
     }
 

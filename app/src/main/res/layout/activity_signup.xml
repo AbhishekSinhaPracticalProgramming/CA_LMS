@@ -7,7 +7,6 @@
     android:background="@drawable/logindesign"
     tools:context=".MainActivity">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,7 +21,7 @@
             android:layout_marginRight="@dimen/marign_10"
             android:background="@drawable/edt_style"
             android:drawablePadding="10dp"
-            android:hint="@string/user_name"
+            android:hint="@string/first_name"
             android:inputType="text"
             android:maxLength="20"
             android:maxLines="1"
@@ -63,7 +62,7 @@
             android:textSize="@dimen/font_size_15" />
 
         <EditText
-            android:id="@+id/edt_cnf_password"
+            android:id="@+id/edt_phone_no"
             android:layout_width="match_parent"
             android:layout_height="@dimen/marign_50"
             android:layout_marginLeft="@dimen/marign_10"
@@ -71,9 +70,25 @@
             android:layout_marginRight="@dimen/marign_10"
             android:background="@drawable/edt_style"
             android:drawablePadding="10dp"
-            android:hint="@string/conf_password"
-            android:inputType="textPassword"
-            android:maxLength="25"
+            android:hint="@string/phone"
+            android:inputType="phone"
+            android:maxLength="10"
+            android:maxLines="1"
+            android:paddingLeft="@dimen/marign_10"
+            android:textSize="@dimen/font_size_15" />
+
+        <EditText
+            android:id="@+id/edt_lst_name"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/marign_50"
+            android:layout_marginLeft="@dimen/marign_10"
+            android:layout_marginTop="@dimen/marign_10"
+            android:layout_marginRight="@dimen/marign_10"
+            android:background="@drawable/edt_style"
+            android:drawablePadding="10dp"
+            android:hint="@string/last_name"
+            android:inputType="text"
+            android:maxLength="20"
             android:maxLines="1"
             android:paddingLeft="@dimen/marign_10"
             android:textSize="@dimen/font_size_15" />
@@ -99,7 +114,7 @@
             android:layout_marginTop="@dimen/marign_10"
             android:paddingRight="@dimen/marign_10"
             android:text="@string/forgot_password"
-            android:textSize="@dimen/font_size_15"/>
+            android:textSize="@dimen/font_size_15" />
 
     </LinearLayout>
 </RelativeLayout>
